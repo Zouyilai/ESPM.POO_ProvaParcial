@@ -16,6 +16,6 @@ public class PessoaFisica extends Cliente{
 
     @Override
     public String toString() {
-        return "{nome: "+ getNome() + ", cpf: "+getCpf()+"}";
+        return "Pessoa Física, nome: "+ getNome() + ", cpf: "+getCpf();
     }
 }

@@ -1,3 +1,5 @@
-public class TipoPessoa {
+public enum TipoPessoa {
+    
+    Fisica, Juridica;
     
 }

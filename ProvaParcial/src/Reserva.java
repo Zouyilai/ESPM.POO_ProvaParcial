@@ -1,4 +1,4 @@
-public class Reserva {
+public class Reserva implements Pagamento{
     
     private Cliente cliente;
     private boolean pagamentoAVista;
@@ -37,7 +37,16 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "{Cliente: "+ cliente + ", Forma de pagamento: " +pagamentoAVista+ "}";
+        String forma = "";
+        boolean pagamento = getPagamentoAVIsta();
+        
+        if (pagamento == true){
+            forma = "À vista";
+        } else {
+            forma = "Parcelado";
+        }
+
+        return "{Cliente: "+ cliente + ", Forma de pagamento: " +forma+ "}";
     }
 
 }
