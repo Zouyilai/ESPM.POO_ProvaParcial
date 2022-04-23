@@ -21,7 +21,7 @@ public class Util {
     }
 
 
-    public static void inputFormaPagamento(){
+    public static boolean inputFormaPagamento(){
         
         Scanner scan = new Scanner(System.in);
         String tp = "";
@@ -32,6 +32,7 @@ public class Util {
                 System.err.println("A: À vista | P: Parcelado");
             }
         }
+        return tp.equals("a") ? true: false;
     }
 
     public static void reservarMesa() {
@@ -41,7 +42,9 @@ public class Util {
         String nome = scan.nextLine();
 
         TipoPessoa tipoPessoa = inputTipoCliente();
+        
         Cliente c = null;
+        
         switch(tipoPessoa) {
             case Fisica:
                 System.out.print("CPF: ");
@@ -62,24 +65,9 @@ public class Util {
                 break;
         }
 
-        String tp = "";
-        while (!tp.equals("a") && !tp.equals("p")) {
-            System.out.print("Forma de pagamento(à vista ou parcelado)? [A|P] ");
-            tp = scan.nextLine().toLowerCase();    
-            if (!tp.equals("a") && !tp.equals("p")) {
-                System.err.println("A: À vista | P: Parcelado");
-            }
-        }
-
-        boolean pagamento;
-        if(tp.equals("a")){
-            pagamento = true;
-        } else {
-            pagamento = false;
-        }
-
+        boolean pagamento = inputFormaPagamento();
+        
         Reserva reserva = new Reserva(c, pagamento);
-        reserva.setPagamentoAVista(pagamento);
         
         clientes.add(c);
         reservas.add(reserva);
@@ -166,7 +154,7 @@ public class Util {
         if (existencia == true){
             System.out.println("Reserva cancelada.");
         } else {
-            System.out.println("Cliente não encontrado.");
+            System.out.println("Reserva não encontrada.");
         }
     }
     
