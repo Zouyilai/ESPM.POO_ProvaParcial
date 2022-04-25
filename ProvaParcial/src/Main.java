@@ -34,7 +34,8 @@ public class Main {
                         exit = true;
                         break;
                     default:
-                        System.err.println("Comando inválido!");
+						System.err.println("Comando inválido!");
+						throw new UnsupportedOperationException();
                 }
             } catch (UnsupportedOperationException e) {
                 e.printStackTrace();

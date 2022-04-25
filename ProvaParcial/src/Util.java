@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Util {
 
-    private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     private static ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 
     private static TipoPessoa inputTipoCliente() {
@@ -69,7 +68,6 @@ public class Util {
         
         Reserva reserva = new Reserva(c, pagamento);
         
-        clientes.add(c);
         reservas.add(reserva);
 
         if(reservas.size() <= 6){
@@ -113,12 +111,14 @@ public class Util {
     }
 
     public static void imprimirReservas() {
+        System.out.println("Reservas: ");
         for(int i = 0; i < 6 && i < reservas.size(); i++){
             System.out.println(reservas.get(i));
         }
     }
 
     public static void imprimirListaEspera() {
+        System.out.println("Lista de Espera: ");
         for(int i = 6; i < reservas.size(); i++){
             System.out.println(reservas.get(i));
             System.out.println("Posição na lista de espera -> " + (i-5));
