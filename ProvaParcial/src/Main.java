@@ -6,7 +6,6 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         String menu = menu();
-
         boolean exit = false;
 
         while (!exit) {
@@ -30,13 +29,12 @@ public class Main {
 					case "5":
 						Util.cancelarReserva();
 						break;
-                    case "6":
-                        exit = true;
-                        break;
-                    default:
+                	case "6":
+						exit = true;
+						break;
+					default:
 						System.err.println("Comando inválido!");
-						throw new UnsupportedOperationException();
-						
+						throw new UnsupportedOperationException();	
                 }
             } catch (UnsupportedOperationException e) {
                 e.printStackTrace();
